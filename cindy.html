@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Alert Example</title>
     <style>
-       
+        /* CSS for the loading bar and cute design */
         .loader-container {
             display: none;
             position: fixed;
@@ -14,7 +14,7 @@
             transform: translate(-50%, -50%);
             background-color: #f3f3f3;
             border-radius: 50px;
-            width: 150px;
+            width: 150px; /* Adjust the width to make it smaller */
             height: 20px;
             padding: 2px;
         }
@@ -22,20 +22,9 @@
         .loader-bar {
             height: 100%;
             width: 0;
-            background-color: #ff6b6b; 
+            background-color: #ff6b6b; /* Change the color to red */
             border-radius: 50px;
-            animation: pulse 1.5s infinite alternate; 
-        }
-
-        .curved-line {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ff6b6b; 
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            animation: pulse 1.5s infinite alternate; /* Add a cute pulsing animation */
         }
 
         @keyframes pulse {
@@ -47,7 +36,7 @@
             }
         }
 
-     
+        /* CSS for the image container (hidden by default) */
         .image-container {
             display: none;
             text-align: center;
@@ -56,7 +45,7 @@
 </head>
 <body>
     <script>
- 
+        // Display alert dialogs
         alert("HALAKA (bitaw click lang ng ok)");
         alert("Hi");
         alert("Celjie diay");
@@ -81,12 +70,11 @@
                     loaderBar.style.width = width + "%";
                 }
             }, 50);
-        }, 1000); 
+        }, 1000); // Delay for 1 second to allow alerts to finish
     </script>
 
     <div class="loader-container" id="loader-container">
         <div class="loader-bar" id="loader-bar"></div>
-        <div class="curved-line"></div>
     </div>
 
     <div class="image-container">
