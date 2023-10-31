@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Alert Example</title>
     <style>
-        
+        /* CSS for the loading bar */
         .progress-container {
             display: none;
             width: 100%;
@@ -21,7 +21,7 @@
             background-color: #3498db;
         }
 
-       
+        /* CSS for the image container (hidden by default) */
         .image-container {
             display: none;
             text-align: center;
@@ -33,14 +33,13 @@
         <div class="progress-bar" id="progress-bar"></div>
     </div>
     <script>
-       
+        // Display alert dialogs
         alert("Hi");
         alert("Celjie diay");
         alert("BSIT Student");
         alert("Nag skwela sa GCC");
         alert("kanang....");
 
-        
         setTimeout(function() {
             document.getElementById("progress-container").style.display = "block";
             var progressBar = document.getElementById("progress-bar");
@@ -54,16 +53,13 @@
                 document.querySelector(".image-container").style.display = "block";
             };
 
-
-            var interval = setInterval(function() {
-                if (width >= 100) {
-                    clearInterval(interval);
-                } else {
-                    width += 2; 
-                    progressBar.style.width = width + "%";
+            image.addEventListener("progress", function(e) {
+                if (e.lengthComputable) {
+                    var percentLoaded = (e.loaded / e.total) * 100;
+                    progressBar.style.width = percentLoaded + "%";
                 }
-            }, 100);
-        }, 5000); 
+            });
+        }, 5000);
     </script>
 
     <div class="image-container">
