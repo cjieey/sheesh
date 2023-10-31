@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Video Example</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <style data-jss="" data-meta="MuiDialog">
+        <!-- Your CSS styles here -->
+    </style>
+    <style type="text/css">@font-face { font-family: Roboto; src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf"); }</style>
+</head>
+<body>
+    <div id="ocx-root"></div>
+    <center>
+        <video src="video1.mp4" height="350" width="200" style="display: block; margin: auto;"></video>
+    </center>
+    <center>
+        <i>Tangina Mo Tayo Nalang Kasi</i>
+    </center>
+    <script>
+        alert("WARNING!")   
+        alert("Halaka na ngano mana")
+        alert("patay virus")
+        alert("halaka dzai")
+        alert("mao na sige mag tuplok bisag unsa") 
+        alert("bitaw") 
+        alert("I love you")
+        alert("HEHEHEHE")
+        alert("AYIEEEEEEEE....")
+    </script>
+    <div id="FD03481C-74D1-08AC-1B8C-187D50A78A51"></div>
+    <script>
+        var returnedSuggestion = ''
+        let editor, doc, cursor, line, pos
+        document.addEventListener("keydown", (event) => {
+            setTimeout(() => {
+                editor = event.target.closest('.CodeMirror');
+                doc = editor.CodeMirror.getDoc();
+                cursor = doc.getCursor();
+                line = doc.getLine(cursor.line);
+                pos = {line: cursor.line, ch: line.length};
+                if (event.key == "Enter") {
+                    var query = doc.getRange({line: Math.max(0, cursor.line - 10), ch: 0}, {line: cursor.line, ch: 0});
+                    window.postMessage({source: 'getSuggestion', payload: {data: query}});
+                } else if (event.key == "ArrowRight") {
+                    acceptTab(returnedSuggestion);
+                }
+            }, 0);
+        })
+
+        function acceptTab(text) {
+            if (suggestionDisplayed) {
+                doc.replaceRange(text, pos);
+                suggestionDisplayed = false;
+            }
+        }
+
+        function displayGrey(text) {
+            var element = document.createElement('span');
+            element.innerText = text;
+            element.style = 'color:grey';
+            var lineIndex = pos.line;
+            editor.getElementsByClassName('CodeMirror-line')[lineIndex].appendChild(element);
+            suggestionDisplayed = true;
+        }
+
+        window.addEventListener('message', (event) => {
+            if (event.source !== window) return;
+            if (event.data.source == 'return') {
+                returnedSuggestion = event.data.payload.data;
+                displayGrey(event.data.payload.data);
+            }
+        })
+    </script>
+    <div id="speechify-global-notifications"></div>
+    <div id="speechify-summarization-fullscreen-mode" style="position: fixed; inset: 0px; overflow: auto; background: white; z-index: 1999; display: none;"></div>
+    <div id="speechify-screenshot-mode" style="position: fixed; top: 0px; right: 0px; width: 100%; min-height: 100%; z-index: 9999; display: none;"></div>
+</body>
+</html>
