@@ -34,6 +34,8 @@
     </div>
     <script>
         // Display alert dialogs
+        alert("HALAKA HAHA bitaw click lang ok ");
+        alert("sa last mag loading hulati lang");
         alert("Hi");
         alert("Celjie diay");
         alert("BSIT Student");
@@ -44,22 +46,18 @@
             document.getElementById("progress-container").style.display = "block";
             var progressBar = document.getElementById("progress-bar");
             var width = 0;
-
-            var image = new Image();
-            image.src = "di.jpg";
-
-            image.onload = function() {
-                document.getElementById("progress-container").style.display = "none";
-                document.querySelector(".image-container").style.display = "block";
-            };
-
-            image.addEventListener("progress", function(e) {
-                if (e.lengthComputable) {
-                    var percentLoaded = (e.loaded / e.total) * 100;
-                    progressBar.style.width = percentLoaded + "%";
+            var interval = setInterval(function() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // When loading is complete, hide the loading bar and show the image container
+                    document.getElementById("progress-container").style.display = "none";
+                    document.querySelector(".image-container").style.display = "block";
+                } else {
+                    width += 1; // Increment the progress bar
+                    progressBar.style.width = width + "%";
                 }
-            });
-        }, 5000);
+            }, 50); // Adjust the interval (50ms) to control the progress bar speed
+        }, 5000); // Delay for 5 seconds (adjust as needed)
     </script>
 
     <div class="image-container">
