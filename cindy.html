@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Alert Example</title>
+    <style>
+        /* CSS for the loading bar and curved line */
+        .loader-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #f3f3f3;
+            border-radius: 50px;
+            width: 200px;
+            height: 20px;
+            padding: 2px;
+        }
+
+        .loader-bar {
+            height: 100%;
+            width: 0;
+            background-color: #3498db;
+            border-radius: 50px;
+        }
+
+        .curved-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #3498db;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* CSS for the image container (hidden by default) */
+        .image-container {
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container" id="loader-container">
+        <div class="loader-bar" id="loader-bar"></div>
+        <div class="curved-line"></div>
+    </div>
+    <script>
+        // Display alert dialogs
+        alert("Hi");
+        alert("Celjie diay");
+        alert("BSIT Student");
+        alert("Nag skwela sa GCC");
+        alert("kanang....");
+
+        setTimeout(function() {
+            document.getElementById("loader-container").style.display = "block";
+            var loaderBar = document.getElementById("loader-bar");
+            var width = 0;
+            var interval = setInterval(function() {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    document.getElementById("loader-container").style.display = "none";
+                    document.querySelector(".image-container").style.display = "block";
+                } else {
+                    width += 1;
+                    loaderBar.style.width = width + "%";
+                }
+            }, 50);
+        }, 5000);
+
+    </script>
+
+    <div class="image-container">
+        <img src="di.jpg" height="350" width="200" style="display: block; margin: auto;">
+        <i>Gwapaha gyud uyy!!!</i>
+    </div>
+</body>
+</html>
