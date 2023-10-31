@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Alert Example</title>
+    <title>Alert and Image Example</title>
 </head>
 <body>
     <script>
@@ -14,10 +14,14 @@
         alert("Alert 4");
         alert("Alert 5");
 
+        // Preload the image
+        var preloadedImage = new Image();
+        preloadedImage.src = "di.jpg";
+
         // Delayed display of image and text
         setTimeout(function() {
             var image = document.createElement("img");
-            image.src = "di.jpg";
+            image.src = preloadedImage.src; // Use the preloaded image
             image.style.display = "block";
             image.style.margin = "auto";
             image.style.height = "350px";
