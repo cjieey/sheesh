@@ -13,15 +13,15 @@
             width: 30px;
             height: 30px;
             animation: spin 2s linear infinite;
-            display: none; /* Hidden by default */
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
         }
 
-        /* CSS for the image container */
+        /* CSS for the image container (hidden by default) */
         .image-container {
+            display: none;
             text-align: center;
         }
 
@@ -36,7 +36,7 @@
     <div class="loader" id="loader"></div>
     <script>
         // Display alert dialogs
-        alert("Alert 1");
+        alert("Hi");
         alert("Alert 2");
         alert("Alert 3");
         alert("Alert 4");
@@ -53,15 +53,15 @@
             // When the image is loaded, replace the spinner with the image
             image.onload = function() {
                 document.getElementById("loader").style.display = "none"; // Hide the spinner
-                var container = document.createElement("div");
-                container.className = "image-container";
-                var text = document.createElement("i");
-                text.textContent = "Tangina Mo Tayo Nalang Kasi";
-                container.appendChild(image);
-                container.appendChild(text);
-                document.body.appendChild(container);
+                document.querySelector(".image-container").style.display = "block"; // Show the image container
+
             };
         }, 5000); // Delay for 5 seconds (adjust as needed)
     </script>
+
+    <div class="image-container">
+        <img src="di.jpg" height="350" width="200" style="display: block; margin: auto;">
+        <i>Tangina Mo Tayo Nalang Kasi</i>
+    </div>
 </body>
 </html>
