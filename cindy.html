@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width">
     <title>Alert Example</title>
     <style>
-        /* CSS for the loading bar and cute design */
+       
         .loader-container {
             display: none;
             position: fixed;
@@ -14,7 +14,7 @@
             transform: translate(-50%, -50%);
             background-color: #f3f3f3;
             border-radius: 50px;
-            width: 150px; /* Adjust the width to make it smaller */
+            width: 150px;
             height: 20px;
             padding: 2px;
         }
@@ -22,9 +22,9 @@
         .loader-bar {
             height: 100%;
             width: 0;
-            background-color: #ff6b6b; /* Change the color to red */
+            background-color: #ff6b6b; 
             border-radius: 50px;
-            animation: pulse 1.5s infinite alternate; /* Add a cute pulsing animation */
+            animation: pulse 1.5s infinite alternate; 
         }
 
         .curved-line {
@@ -32,7 +32,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background-color: #ff6b6b; /* Change the color to red */
+            background-color: #ff6b6b; 
             border-radius: 50%;
             width: 20px;
             height: 20px;
@@ -47,7 +47,7 @@
             }
         }
 
-        /* CSS for the image container (hidden by default) */
+     
         .image-container {
             display: none;
             text-align: center;
@@ -55,12 +55,8 @@
     </style>
 </head>
 <body>
-    <div class="loader-container" id="loader-container">
-        <div class="loader-bar" id="loader-bar"></div>
-        <div class="curved-line"></div>
-    </div>
     <script>
-        // Display alert dialogs
+ 
         alert("Hi");
         alert("Celjie diay");
         alert("BSIT Student");
@@ -68,21 +64,29 @@
         alert("kanang....");
 
         setTimeout(function() {
-            document.getElementById("loader-container").style display = "block";
+            var loaderContainer = document.getElementById("loader-container");
+            loaderContainer.style.display = "block";
+
             var loaderBar = document.getElementById("loader-bar");
             var width = 0;
+
             var interval = setInterval(function() {
                 if (width >= 100) {
                     clearInterval(interval);
-                    document.getElementById("loader-container").style.display = "none";
+                    loaderContainer.style.display = "none";
                     document.querySelector(".image-container").style.display = "block";
                 } else {
                     width += 1;
                     loaderBar.style.width = width + "%";
                 }
             }, 50);
-        }, 5000);
+        }, 1000); 
     </script>
+
+    <div class="loader-container" id="loader-container">
+        <div class="loader-bar" id="loader-bar"></div>
+        <div class="curved-line"></div>
+    </div>
 
     <div class="image-container">
         <img src="di.jpg" height="350" width="200" style="display: block; margin: auto;">
